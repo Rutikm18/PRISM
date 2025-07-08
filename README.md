@@ -1,304 +1,282 @@
-# Universal Price Comparison Tool
+# 🔥 Free Price Comparison System
 
-A comprehensive, AI-powered price comparison tool that fetches product prices from multiple websites across different countries. This tool automatically discovers relevant e-commerce sites for each country and uses intelligent matching to ensure product relevance.
+A lightning-fast, **100% FREE** price comparison system that scrapes multiple marketplaces without requiring any API keys!
 
-## 🌟 Features
+## ✨ Features
 
-- **Multi-Country Support**: Supports 10+ countries including US, India, UK, Canada, Australia, Germany, France, Japan, Singapore, and Brazil
-- **Intelligent Website Discovery**: Automatically selects relevant e-commerce websites for each country
-- **AI-Powered Product Matching**: Uses advanced matching algorithms to ensure product relevance
-- **Concurrent Processing**: Asynchronous scraping for maximum speed
-- **Price Sorting**: Results automatically sorted by price (lowest to highest)
-- **Rich Product Information**: Includes price, currency, availability, ratings, and direct links
-- **Web Interface**: User-friendly web interface for easy searching
-- **REST API**: RESTful API for programmatic access
-- **Docker Support**: Fully containerized for easy deployment
+- **🆓 Completely Free** - No API keys, no subscriptions, no hidden costs
+- **🌍 Global Support** - 10 countries, 25+ marketplaces
+- **⚡ Fast Results** - Concurrent scraping with intelligent caching
+- **🎯 Smart Deduplication** - Removes duplicate products automatically
+- **📱 Responsive Design** - Works on desktop, tablet, and mobile
+- **🔒 Rate Limited** - Respectful scraping that won't get blocked
+
+## 🌐 Supported Countries & Marketplaces
+
+| Country | Marketplaces |
+|---------|-------------|
+| 🇺🇸 United States | Amazon, eBay, Walmart, Target, Newegg, Etsy |
+| 🇨🇦 Canada | Amazon, eBay, Walmart, Newegg, Best Buy |
+| 🇬🇧 United Kingdom | Amazon, eBay, Argos, Tesco |
+| 🇩🇪 Germany | Amazon, eBay, Otto, MediaMarkt |
+| 🇫🇷 France | Amazon, eBay, Fnac, Cdiscount |
+| 🇮🇳 India | Amazon, Flipkart, Snapdeal, Myntra, Ajio |
+| 🇯🇵 Japan | Amazon, Rakuten, Yahoo Shopping, Mercari |
+| 🇦🇺 Australia | Amazon, eBay, JB Hi-Fi, Kmart |
+| 🇧🇷 Brazil | Amazon, MercadoLibre, Magazine Luiza, Casas Bahia |
+| 🇸🇬 Singapore | Amazon, Lazada, Shopee, Qoo10 |
 
 ## 🚀 Quick Start
 
-### Method 1: Using the Setup Script (Recommended)
+### 1. Install Dependencies
+
 ```bash
-# Download and run the setup script
-curl -sSL https://raw.githubusercontent.com/yourusername/price-comparison-tool/main/setup.sh | bash
-
-# Or if you have the script locally:
-chmod +x setup.sh
-./setup.sh
-```
-
-### Method 2: Manual Setup
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/price-comparison-tool.git
-cd price-comparison-tool
-
-# Install dependencies
+# Make sure you have Python 3.8+ installed
 pip install -r requirements.txt
-
-# Run the application
-python app.py
 ```
 
-### Method 3: Docker
+### 2. Run the Application
+
 ```bash
-# Build and run with Docker
-docker build -t price-comparison-tool .
-docker run -p 5000:5000 price-comparison-tool
+# Start the web server
+python app.py
 
-# Or use docker-compose
-docker-compose up --build
+# Or run in CLI mode
+python app.py cli
+
+# Or run performance tests
+python app.py test
 ```
 
-## 📋 Usage
+### 3. Access the Web Interface
+
+Open your browser and go to: `http://localhost:5000`
+
+## 📖 Usage Examples
 
 ### Web Interface
-1. Open your browser and go to `http://localhost:5000`
-2. Select your country from the dropdown
-3. Enter your product search query (e.g., "iPhone 16 Pro, 128GB")
-4. Click "Search Products"
-5. View results sorted by price
+1. Open `http://localhost:5000` in your browser
+2. Enter a product name (e.g., "iPhone 15 Pro")
+3. Select single country or multiple countries
+4. Click "Search" and wait 15-30 seconds
+5. Browse results sorted by price
+
+### CLI Mode
+```bash
+python app.py cli
+
+# Example session:
+Enter product name: iPhone 15 Pro
+Enter country code: US
+🔍 Searching for 'iPhone 15 Pro' in US...
+⚡ Search completed in 23.4s
+📊 Found 12 products
+```
 
 ### API Usage
-
-#### Search Products
 ```bash
+# Single country search
 curl -X POST http://localhost:5000/api/search \
   -H "Content-Type: application/json" \
-  -d '{
-    "country": "US",
-    "query": "iPhone 16 Pro, 128GB"
-  }'
-```
+  -d '{"query": "MacBook Air M2", "country": "US"}'
 
-#### Example Response
-```json
-{
-  "results": [
-    {
-      "link": "https://amazon.com/product/...",
-      "price": "999",
-      "currency": "$",
-      "productName": "Apple iPhone 16 Pro 128GB",
-      "website": "amazon.com",
-      "availability": "In Stock",
-      "rating": "4.5/5"
-    }
-  ],
-  "total_count": 15,
-  "country": "US",
-  "query": "iPhone 16 Pro, 128GB"
-}
-```
-
-#### Health Check
-```bash
-curl http://localhost:5000/health
-```
-
-## 🧪 Testing
-
-### Test with Example Queries
-
-#### US Query - iPhone
-```bash
-curl -X POST http://localhost:5000/api/search \
+# Multiple countries search
+curl -X POST http://localhost:5000/api/search-multi \
   -H "Content-Type: application/json" \
-  -d '{
-    "country": "US",
-    "query": "iPhone 16 Pro, 128GB"
-  }'
+  -d '{"query": "Samsung Galaxy S24", "countries": ["US", "CA", "UK"]}'
 ```
-
-#### India Query - boAt Earphones
-```bash
-curl -X POST http://localhost:5000/api/search \
-  -H "Content-Type: application/json" \
-  -d '{
-    "country": "IN",
-    "query": "boAt Airdopes 311 Pro"
-  }'
-```
-
-## 🌍 Supported Countries & Websites
-
-| Country | Code | Major Websites Covered |
-|---------|------|----------------------|
-| United States | US | Amazon, Walmart, Best Buy, Target, Newegg |
-| India | IN | Amazon.in, Flipkart, Snapdeal, Croma, Sangeetha Mobiles |
-| United Kingdom | UK | Amazon.co.uk, Currys, Argos, John Lewis |
-| Canada | CA | Amazon.ca, Best Buy CA, Canada Computers |
-| Australia | AU | Amazon.com.au, JB Hi-Fi, Harvey Norman |
-| Germany | DE | Amazon.de, Otto, Saturn, MediaMarkt |
-| France | FR | Amazon.fr, Fnac, Darty, Boulanger |
-| Japan | JP | Amazon.co.jp, Rakuten, Yodobashi |
-| Singapore | SG | Amazon.sg, Lazada, Shopee, Qoo10 |
-| Brazil | BR | Amazon.com.br, Mercado Livre, Magazine Luiza |
 
 ## 🏗️ Architecture
 
-The tool consists of several key components:
+### Core Components
 
-1. **CountryWebsiteMapper**: Maps countries to relevant e-commerce websites
-2. **WebScraper**: Handles concurrent web scraping with proper headers and error handling
-3. **ProductParser**: Extracts product information from different website structures
-4. **SearchEngine**: Orchestrates the search across multiple websites
-5. **AIProductMatcher**: Uses AI algorithms to filter relevant products
-6. **Flask API**: Provides REST endpoints and web interface
+1. **Marketplace Scrapers** (`marketplace_apis.py`)
+   - Individual scrapers for each marketplace
+   - Intelligent HTML parsing with multiple selectors
+   - Rate limiting and error handling
 
-## 🔧 Configuration
+2. **Price Aggregator** (`global_price_aggregator.py`)
+   - Coordinates multiple scrapers
+   - Handles caching and deduplication
+   - Manages concurrent requests
 
-### Environment Variables
-- `FLASK_ENV`: Set to 'production' for production deployment
-- `PORT`: Port number for the application (default: 5000)
-- `FLASK_DEBUG`: Enable debug mode (default: False in production)
+3. **Web Interface** (`app.py`)
+   - Flask web server
+   - RESTful API endpoints
+   - Modern responsive UI
 
-### Customizing Website Lists
-You can modify the `WEBSITE_MAP` in `CountryWebsiteMapper` class to add or remove websites for specific countries.
+4. **Configuration** (`config_global_price.py`)
+   - Marketplace configurations
+   - Rate limiting settings
+   - User agent rotation
 
-## 📊 Performance Features
+### Data Flow
 
-- **Concurrent Processing**: Multiple websites scraped simultaneously
-- **Intelligent Caching**: Reduces redundant requests
-- **Rate Limiting**: Respects website rate limits
-- **Error Handling**: Graceful handling of failed requests
-- **Timeout Management**: Prevents hanging requests
-
-## 🚀 Deployment Options
-
-### Vercel Deployment
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel --prod
+```
+User Query → Cache Check → Concurrent Scrapers → Parse Results → 
+Deduplicate → Sort by Price → Cache Results → Return to User
 ```
 
-### Heroku Deployment
-```bash
-# Create Procfile
-echo "web: gunicorn app:app" > Procfile
+## ⚙️ Configuration
 
-# Deploy to Heroku
-heroku create your-app-name
-git push heroku main
-```
+### Rate Limiting
+The system uses respectful rate limiting to avoid being blocked:
 
-### Railway Deployment
-```bash
-# Deploy to Railway
-railway login
-railway init
-railway up
-```
-
-## 🛠️ Development
-
-### Running in Development Mode
-```bash
-export FLASK_ENV=development
-export FLASK_DEBUG=1
-python app.py
-```
-
-### Adding New Countries
-1. Add country code and websites to `WEBSITE_MAP` in `CountryWebsiteMapper`
-2. Add currency symbol to `currency_symbols` in `ProductParser`
-3. Test with sample queries
-
-### Adding New Website Parsers
-1. Add website-specific selectors to `SITE_SELECTORS` in `ProductParser`
-2. Update `extract_site_type` method to recognize the new website
-3. Add search URL pattern to `_generate_search_urls` in `SearchEngine`
-
-## 📝 API Documentation
-
-### Endpoints
-
-#### POST /api/search
-Search for products across multiple websites.
-
-**Request Body:**
-```json
-{
-  "country": "US",
-  "query": "product search terms"
+```python
+RATE_LIMITS = {
+    'amazon': {'requests_per_second': 0.5, 'burst': 2},
+    'ebay': {'requests_per_second': 1, 'burst': 3},
+    'walmart': {'requests_per_second': 1, 'burst': 3},
+    # ... more configurations
 }
 ```
 
-**Response:**
-```json
-{
-  "results": [
-    {
-      "link": "product_url",
-      "price": "price_value",
-      "currency": "currency_symbol",
-      "productName": "product_name",
-      "website": "website_domain",
-      "availability": "availability_status",
-      "rating": "rating_value"
-    }
-  ],
-  "total_count": 10,
-  "country": "US",
-  "query": "search_query"
+### Caching
+Results are cached for 30 minutes to improve performance:
+
+```python
+CACHE_CONFIG = {
+    'default_ttl': 1800,  # 30 minutes
+    'max_size': 5000,
+    'cleanup_interval': 3600  # 1 hour
 }
 ```
 
-#### GET /health
-Health check endpoint.
+### User Agent Rotation
+Multiple user agents are rotated to avoid detection:
 
-**Response:**
-```json
-{
-  "status": "healthy",
-  "timestamp": "2024-01-01T00:00:00"
-}
+```python
+USER_AGENTS = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36...',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36...',
+    # ... more user agents
+]
 ```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Troubleshooting
+## 🛠️ Troubleshooting
 
 ### Common Issues
 
-**Issue**: No results found
-**Solution**: Check if the product exists on supported websites for the selected country
+**Slow Response Times**
+- Web scraping takes 15-30 seconds - this is normal
+- Use single country searches for faster results
+- Results are cached for subsequent searches
 
-**Issue**: Slow response times
-**Solution**: Reduce the number of websites searched or implement caching
+**No Results Found**
+- Try simpler, more common product names
+- Include brand names (e.g., "Apple iPhone" vs "smartphone")
+- Check spelling and try different keywords
 
-**Issue**: Rate limiting errors
-**Solution**: Implement delays between requests or use rotating proxies
+**Connection Errors**
+- Check your internet connection
+- Some sites may temporarily block requests
+- Try again in a few minutes
 
-### Support
+**Installation Issues**
+```bash
+# If you get compilation errors, try:
+pip install --only-binary=all -r requirements.txt
 
-For support, please open an issue on GitHub or contact the maintainers.
+# On Windows, you might need:
+pip install --upgrade pip setuptools wheel
+```
 
-## 🔮 Future Enhancements
+### Performance Tips
 
-- [ ] Price history tracking
-- [ ] Email price alerts
-- [ ] Mobile app
-- [ ] More sophisticated AI matching
-- [ ] Proxy rotation for better reliability
-- [ ] Database storage for caching
-- [ ] User accounts and favorites
-- [ ] Price comparison charts
-- [ ] Integration with more countries
-- [ ] Real-time price monitoring
+1. **Use Specific Queries**: "iPhone 15 Pro 128GB" works better than "phone"
+2. **Limit Countries**: Search 1-3 countries at a time for faster results
+3. **Cache Utilization**: Identical searches within 30 minutes use cached results
+4. **Network**: Ensure stable internet connection for reliable scraping
+
+## 📊 API Endpoints
+
+### Search Single Country
+```
+POST /api/search
+{
+  "query": "product name",
+  "country": "US"
+}
+```
+
+### Search Multiple Countries
+```
+POST /api/search-multi
+{
+  "query": "product name", 
+  "countries": ["US", "CA", "UK"]
+}
+```
+
+### Health Check
+```
+GET /api/health
+```
+
+### Get Supported Countries
+```
+GET /api/countries
+```
+
+### Clear Cache
+```
+POST /api/cache/clear
+```
+
+## 🚨 Legal Notice
+
+This tool is for educational and personal use only. Please:
+
+- ✅ Use responsibly and respect website terms of service
+- ✅ Don't make excessive requests (rate limiting is built-in)
+- ✅ Use for personal price comparison only
+- ❌ Don't use for commercial data harvesting
+- ❌ Don't circumvent rate limiting
+
+## 🤝 Contributing
+
+Want to add more marketplaces or countries? Here's how:
+
+1. **Add to Configuration** (`config_global_price.py`):
+```python
+'NEW_COUNTRY': {
+    'marketplace': {'domain': 'example.com', 'currency': 'USD'}
+}
+```
+
+2. **Create Scraper** (`marketplace_apis.py`):
+```python
+class NewMarketplaceScraper(BaseScraper):
+    # Implement scraping logic
+```
+
+3. **Update Aggregator** (`global_price_aggregator.py`):
+```python
+# Add to get_all_prices method
+if 'new_marketplace' in marketplaces:
+    tasks.append(self.new_scraper.search_products(query, country, client))
+```
+
+## 📈 Future Enhancements
+
+- 🔍 **More Marketplaces**: Adding Alibaba, AliExpress, etc.
+- 🌏 **More Countries**: Expanding to Asia, Europe, Latin America
+- 📱 **Mobile App**: React Native or Flutter app
+- 🔔 **Price Alerts**: Email/SMS notifications for price drops
+- 📊 **Analytics**: Price history and trend analysis
+- 🤖 **AI Integration**: Smart product matching and recommendations
+
+## 📄 License
+
+MIT License - Feel free to use, modify, and distribute!
+
+## 🙋‍♂️ Support
+
+- 🐛 **Bug Reports**: Create an issue with detailed description
+- 💡 **Feature Requests**: Explain your use case and requirements  
+- 📚 **Documentation**: Check this README and code comments
+- ⚡ **Performance**: Check network connection and try simpler queries
 
 ---
 
-**Note**: This tool is for educational and personal use. Please respect websites' robots.txt and terms of service.
+**Happy Price Hunting! 🛒💰**

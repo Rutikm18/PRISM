@@ -50,3 +50,37 @@
 2025-07-08 17:51:11,132 - __main__ - INFO - Enhanced version with Windows compatibility
 2025-07-08 17:51:11,155 - werkzeug - WARNING -  * Debugger is active!
 2025-07-08 17:51:11,159 - werkzeug - INFO -  * Debugger PIN: 144-795-324
+2025-07-08 20:08:04,286 - __main__ - INFO - Starting Universal Price Comparison Tool...
+2025-07-08 20:08:04,287 - __main__ - INFO - Enhanced version with Windows compatibility
+2025-07-08 20:08:04,372 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.236.205:5000
+2025-07-08 20:08:04,373 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 20:08:04,376 - werkzeug - INFO -  * Restarting with stat
+2025-07-08 20:08:04,920 - __main__ - INFO - Starting Universal Price Comparison Tool...
+2025-07-08 20:08:04,921 - __main__ - INFO - Enhanced version with Windows compatibility
+2025-07-08 20:08:04,955 - werkzeug - WARNING -  * Debugger is active!
+2025-07-08 20:08:04,961 - werkzeug - INFO -  * Debugger PIN: 112-495-097
+2025-07-08 20:08:12,770 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2025 20:08:12] "GET / HTTP/1.1" 200 -
+2025-07-08 20:08:22,478 - werkzeug - INFO - 192.168.236.205 - - [08/Jul/2025 20:08:22] "GET / HTTP/1.1" 200 -
+2025-07-08 20:08:23,768 - werkzeug - INFO - 192.168.236.205 - - [08/Jul/2025 20:08:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-08 20:09:18,619 - __main__ - INFO - Searching for 'iphone' in IN
+2025-07-08 20:09:21,347 - __main__ - WARNING - HTTP 404 for https://snapdeal.com/products?search=iphone
+2025-07-08 20:09:24,020 - __main__ - WARNING - HTTP 403 for https://croma.com/search?q=iphone
+2025-07-08 20:09:25,202 - __main__ - WARNING - HTTP 403 for https://croma.com/search?query=iphone
+2025-07-08 20:09:26,486 - __main__ - WARNING - HTTP 403 for https://croma.com/products?search=iphone
+2025-07-08 20:09:35,762 - __main__ - INFO - Found 1 raw results
+2025-07-08 20:09:35,763 - __main__ - INFO - Found 1 relevant products after AI filtering
+2025-07-08 20:09:35,764 - werkzeug - INFO - 192.168.236.205 - - [08/Jul/2025 20:09:35] "POST /api/search HTTP/1.1" 200 -
+2025-07-08 20:14:46,288 - __main__ - INFO - Searching for 'iphone' in US
+2025-07-08 20:14:48,027 - __main__ - WARNING - HTTP 404 for https://target.com/search?query=iphone
+2025-07-08 20:14:50,402 - __main__ - WARNING - HTTP 404 for https://target.com/products?search=iphone
+2025-07-08 20:14:53,268 - __main__ - WARNING - HTTP 403 for https://newegg.com/search?q=iphone
+2025-07-08 20:14:53,321 - __main__ - WARNING - HTTP 403 for https://newegg.com/search?query=iphone
+2025-07-08 20:14:55,182 - __main__ - WARNING - HTTP 403 for https://newegg.com/products?search=iphone
+2025-07-08 20:15:03,335 - __main__ - WARNING - HTTP 404 for https://target.com/search?q=iphone
+2025-07-08 20:15:04,084 - __main__ - WARNING - Timeout fetching https://bestbuy.com/site/searchpage.jsp?st=iphone
+2025-07-08 20:15:04,098 - __main__ - INFO - Found 2 raw results
+2025-07-08 20:15:04,098 - __main__ - INFO - Found 2 relevant products after AI filtering
+2025-07-08 20:15:04,099 - werkzeug - INFO - 192.168.236.205 - - [08/Jul/2025 20:15:04] "POST /api/search HTTP/1.1" 200 -

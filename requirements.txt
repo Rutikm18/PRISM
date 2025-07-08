@@ -1,28 +1,35 @@
-# Windows-compatible requirements.txt
-# Uses pre-compiled wheels to avoid C++ build requirements
+# requirements.txt - Complete dependencies for Free Price Comparison System
+# No API keys required - Pure web scraping solution!
 
 # Core web framework
 flask==2.3.3
 flask-cors==4.0.0
 
-# HTTP client (requests instead of aiohttp to avoid C++ compilation)
-requests==2.31.0
+# HTTP client for web scraping (faster than requests)
 httpx==0.25.2
+httpx[http2]==0.25.2
 
-# HTML parsing
+# HTML parsing (BeautifulSoup + lxml for better performance)
 beautifulsoup4==4.12.2
+lxml==4.9.3
 
-# Async support (lightweight alternatives)
+# Async support
 asyncio==3.4.3
 
 # Environment and utilities
 python-dotenv==1.0.0
 
-# Production server
+# Production server (optional but recommended)
 waitress==2.1.2
+gunicorn==21.2.0
 
-# Optional: If you still want to try aiohttp, use specific version with pre-built wheels
-# aiohttp==3.9.1
+# Additional utilities for better scraping
+urllib3==2.0.7
+certifi==2023.11.17
 
-# Alternative: Use these instead of aiohttp for async HTTP
-httpx[http2]==0.25.2
+# Optional: For better error handling and retries
+tenacity==8.2.3
+
+# Optional: For better logging and monitoring
+colorama==0.4.6
+
