@@ -1,0 +1,28 @@
+# Windows-compatible requirements.txt
+# Uses pre-compiled wheels to avoid C++ build requirements
+
+# Core web framework
+flask==2.3.3
+flask-cors==4.0.0
+
+# HTTP client (requests instead of aiohttp to avoid C++ compilation)
+requests==2.31.0
+httpx==0.25.2
+
+# HTML parsing
+beautifulsoup4==4.12.2
+
+# Async support (lightweight alternatives)
+asyncio==3.4.3
+
+# Environment and utilities
+python-dotenv==1.0.0
+
+# Production server
+waitress==2.1.2
+
+# Optional: If you still want to try aiohttp, use specific version with pre-built wheels
+# aiohttp==3.9.1
+
+# Alternative: Use these instead of aiohttp for async HTTP
+httpx[http2]==0.25.2

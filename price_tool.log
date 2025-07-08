@@ -1,0 +1,52 @@
+2025-07-08 17:46:15,721 - __main__ - INFO - Starting Universal Price Comparison Tool...
+2025-07-08 17:46:15,722 - __main__ - INFO - Enhanced version with Windows compatibility
+2025-07-08 17:46:15,777 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.44.60:5000
+2025-07-08 17:46:15,777 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-08 17:46:15,779 - werkzeug - INFO -  * Restarting with stat
+2025-07-08 17:46:16,141 - __main__ - INFO - Starting Universal Price Comparison Tool...
+2025-07-08 17:46:16,141 - __main__ - INFO - Enhanced version with Windows compatibility
+2025-07-08 17:46:16,162 - werkzeug - WARNING -  * Debugger is active!
+2025-07-08 17:46:16,166 - werkzeug - INFO -  * Debugger PIN: 144-795-324
+2025-07-08 17:46:22,272 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:22] "GET / HTTP/1.1" 200 -
+2025-07-08 17:46:23,559 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-08 17:46:33,298 - __main__ - INFO - Searching for 'iphone 16' in IN
+2025-07-08 17:46:34,977 - __main__ - WARNING - HTTP 404 for https://snapdeal.com/products?search=iphone+16
+2025-07-08 17:46:37,238 - __main__ - WARNING - HTTP 403 for https://croma.com/search?q=iphone+16
+2025-07-08 17:46:38,130 - __main__ - WARNING - Rate limited by flipkart.com
+2025-07-08 17:46:41,965 - __main__ - WARNING - HTTP 403 for https://croma.com/products?search=iphone+16
+2025-07-08 17:46:45,086 - __main__ - WARNING - Rate limited by flipkart.com
+2025-07-08 17:46:52,554 - __main__ - INFO - Found 1 raw results
+2025-07-08 17:46:52,554 - __main__ - INFO - Found 1 relevant products after AI filtering
+2025-07-08 17:46:52,555 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2025 17:46:52] "POST /api/search HTTP/1.1" 200 -
+2025-07-08 17:47:03,040 - __main__ - INFO - Searching for 'iphone 16' in US
+2025-07-08 17:47:05,193 - __main__ - WARNING - HTTP 404 for https://target.com/search?q=iphone+16
+2025-07-08 17:47:05,252 - __main__ - WARNING - HTTP 404 for https://target.com/search?query=iphone+16
+2025-07-08 17:47:06,815 - __main__ - WARNING - HTTP 503 for https://amazon.com/s?k=iphone+16
+2025-07-08 17:47:07,558 - __main__ - WARNING - HTTP 404 for https://target.com/products?search=iphone+16
+2025-07-08 17:47:08,722 - __main__ - WARNING - HTTP 403 for https://newegg.com/search?q=iphone+16
+2025-07-08 17:47:09,792 - __main__ - WARNING - HTTP 403 for https://newegg.com/products?search=iphone+16
+2025-07-08 17:47:10,214 - __main__ - WARNING - HTTP 403 for https://newegg.com/search?query=iphone+16
+2025-07-08 17:47:20,508 - __main__ - WARNING - Timeout fetching https://bestbuy.com/site/searchpage.jsp?st=iphone+16
+2025-07-08 17:47:20,509 - __main__ - INFO - Found 0 raw results
+2025-07-08 17:47:20,509 - __main__ - INFO - Found 0 relevant products after AI filtering
+2025-07-08 17:47:20,510 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2025 17:47:20] "POST /api/search HTTP/1.1" 200 -
+2025-07-08 17:47:34,960 - __main__ - INFO - Searching for 'iphone 16' in US
+2025-07-08 17:47:36,979 - __main__ - WARNING - HTTP 404 for https://target.com/search?query=iphone+16
+2025-07-08 17:47:37,261 - __main__ - WARNING - HTTP 404 for https://target.com/search?q=iphone+16
+2025-07-08 17:47:38,852 - __main__ - WARNING - HTTP 404 for https://target.com/products?search=iphone+16
+2025-07-08 17:47:40,105 - __main__ - WARNING - HTTP 403 for https://newegg.com/search?q=iphone+16
+2025-07-08 17:47:41,127 - __main__ - WARNING - HTTP 403 for https://newegg.com/search?query=iphone+16
+2025-07-08 17:47:41,482 - __main__ - WARNING - HTTP 403 for https://newegg.com/products?search=iphone+16
+2025-07-08 17:47:51,470 - __main__ - WARNING - Timeout fetching https://bestbuy.com/site/searchpage.jsp?st=iphone+16
+2025-07-08 17:47:51,474 - __main__ - INFO - Found 2 raw results
+2025-07-08 17:47:51,475 - __main__ - INFO - Found 2 relevant products after AI filtering
+2025-07-08 17:47:51,475 - werkzeug - INFO - 127.0.0.1 - - [08/Jul/2025 17:47:51] "POST /api/search HTTP/1.1" 200 -
+2025-07-08 17:51:10,538 - werkzeug - INFO -  * Detected change in 'D:\\All work personal\\Project Task\\price-comparison-tool\\app.py', reloading
+2025-07-08 17:51:10,638 - werkzeug - INFO -  * Restarting with stat
+2025-07-08 17:51:11,132 - __main__ - INFO - Starting Universal Price Comparison Tool...
+2025-07-08 17:51:11,132 - __main__ - INFO - Enhanced version with Windows compatibility
+2025-07-08 17:51:11,155 - werkzeug - WARNING -  * Debugger is active!
+2025-07-08 17:51:11,159 - werkzeug - INFO -  * Debugger PIN: 144-795-324
